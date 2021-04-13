@@ -35,10 +35,6 @@ register_activation_hook(MF_PLUGIN_INDEX, function () {
         `trash` BOOLEAN
     )");
 
-    file_put_contents(dirname(MF_PLUGIN_INDEX) . '/logfile.log', $wpdb->last_error);
-
-
-
     update_option('mintfit-api-tests', json_encode([
         'math1',
         'physics'
