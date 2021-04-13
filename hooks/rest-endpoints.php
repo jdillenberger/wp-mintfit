@@ -33,6 +33,14 @@ add_action('rest_api_init', function () use ($permission_callback_nonce) {
         },
     ));
 
+    register_rest_route('mintfit/v1', '/entry/(?P<id>\d+)', array(
+        'methods' => 'DELETE',
+        'permission_callback' => $permission_callback_nonce,
+        'callback' => function ($atts) {
+            return \apply_filters('mintfit-rest-delete-entry', $atts);
+        },
+    ));
+
     register_rest_route('mintfit/v1', '/update', array(
         'methods' => 'GET',
         'permission_callback' => $permission_callback_nonce,

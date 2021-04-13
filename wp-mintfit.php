@@ -19,6 +19,7 @@ include plugin_dir_path(MF_PLUGIN_INDEX) . 'hooks/activation.php';
 include plugin_dir_path(MF_PLUGIN_INDEX) . 'hooks/admin-change-options.php';
 include plugin_dir_path(MF_PLUGIN_INDEX) . 'hooks/admin-menu.php';
 include plugin_dir_path(MF_PLUGIN_INDEX) . 'hooks/api-update.php';
+include plugin_dir_path(MF_PLUGIN_INDEX) . 'hooks/rest-delete-entry.php';
 include plugin_dir_path(MF_PLUGIN_INDEX) . 'hooks/rest-endpoints.php';
 include plugin_dir_path(MF_PLUGIN_INDEX) . 'hooks/rest-get-options.php';
 include plugin_dir_path(MF_PLUGIN_INDEX) . 'hooks/rest-get-test.php';
