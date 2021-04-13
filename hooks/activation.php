@@ -2,7 +2,7 @@
 
 register_activation_hook(MF_PLUGIN_INDEX, function () {
 
-    $capabilities = ['mintfit_change_options'];
+    $capabilities = ['mintfit_change_options', 'mintfit_view_results'];
 
     // Setup user capabilities
     foreach ($GLOBALS['wp_roles']->role_objects as $role) {
@@ -11,7 +11,7 @@ register_activation_hook(MF_PLUGIN_INDEX, function () {
                 continue;
             }
         
-            $role->add_cap($capability, $role->has_cap('edit_pages'));
+            $role->add_cap($capability, $role->has_cap('manage_options'));
         }
     }
 
