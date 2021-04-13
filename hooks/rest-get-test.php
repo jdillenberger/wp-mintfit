@@ -56,7 +56,8 @@ add_filter('mintfit-rest-get-test', function ($atts) {
             'finished' => boolval($test_result['finished']),
             'question_scores' => array_map(function($score){
                 return $score;
-            }, json_decode($test_result['data'], true))
+            }, json_decode($test_result['data'], true)),
+            'trash' => boolval( $test_result['trash'])
         ];
 
     }, $wpdb->get_results($stmt, ARRAY_A));

@@ -1,6 +1,7 @@
 import Vue from 'vuejs';
 import Axios from 'axios'
 import AdminChangeOptions from './admin-change-options.vue';
+import AdminViewResults from './admin-view-results.vue';
 import {
     templateSettings
 } from 'lodash';
@@ -11,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         el: '.mitfit-app',
         components: {
             'admin-change-options': AdminChangeOptions,
+            'admin-view-results': AdminViewResults
         },
         data: {
             api: Axios.create({
@@ -23,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
             clientId: "",
             clientSecret: "",
             tests: [],
+            testResults: [],
             testsAvailable: ['math1', 'physics', 'test']
         },
         mounted() {
@@ -30,6 +33,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 this.tests = response.data['tests']
                 this.clientId = response.data['client_id']
                 this.clientSecret = response.data['client_secret']
+            })
+            this.api.get('mintfit/v1/test/all?all_users=true').then(response => {
+                console.log(response)
+                this.testResults = response.data
             })
         },
         methods: {
@@ -46,6 +53,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     this.tests = clientData.tests
                 })
 
+            },
+            deleteEntry: function(entry) {
+                this.api.delete(`mintfit/v1/entry/${entry.id}`).then(response => {
+                    Vue.set(entry, 'trash', true)
+                })
             }
         }
 

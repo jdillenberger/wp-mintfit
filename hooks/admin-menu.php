@@ -16,12 +16,24 @@ add_action('admin_menu', function () {
 
     add_submenu_page(
         'mintfit',
-        __('MINTFIT Options', 'mintfit'),
-        __('MINTFIT Options', 'mintfit'),
+        __('Options', 'mintfit'),
+        __('Options', 'mintfit'),
         'mintfit_change_options',
         'mintfit',
         function () {
             do_action('mintfit-admin-change-options-page');
+        },
+        11
+    );
+
+    add_submenu_page(
+        'mintfit',
+        __('Results', 'mintfit'),
+        __('Results', 'mintfit'),
+        'mintfit_view_results',
+        'mintfit_view_results',
+        function () {
+            do_action('mintfit-admin-view-results-page');
         },
         11
     );
