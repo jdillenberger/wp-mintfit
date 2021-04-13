@@ -34,6 +34,8 @@ add_filter('mintfit-rest-get-test', function ($atts) {
         array_push($conditions, "`trash` IS TRUE");
     }
 
+    $condition_variables = count($condition_variables) == 0 ? [null] : $condition_variables;
+
     global $wpdb;
     $mf_table = $wpdb->prefix . 'mintfit';
     $query = "SELECT * FROM $mf_table WHERE " . implode(' AND ', $conditions);
