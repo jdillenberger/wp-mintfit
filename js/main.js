@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
             clientSecret: "",
             tests: [],
             testResults: [],
-            testsAvailable: ['math1', 'physics', 'test']
+            testsAvailable: ['math1', 'physics']
         },
         mounted() {
             this.api.get('mintfit/v1/options/').then((response) => {
