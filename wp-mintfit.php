@@ -27,12 +27,7 @@ include plugin_dir_path(MF_PLUGIN_INDEX) . 'hooks/rest-get-test.php';
 include plugin_dir_path(MF_PLUGIN_INDEX) . 'hooks/rest-post-options.php';
 include plugin_dir_path(MF_PLUGIN_INDEX) . 'hooks/rest-put-api-update.php';
 
-
-
-
-
-
 # SCHEDULE HOOKS
-#include plugin_dir_path(MF_PLUGIN_INDEX) . 'cron.php';
+include plugin_dir_path(MF_PLUGIN_INDEX) . 'cron.php';
 
 
