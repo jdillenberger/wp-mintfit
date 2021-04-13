@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 this.clientSecret = response.data['client_secret']
             })
             this.api.get('mintfit/v1/test/all?all_users=true').then(response => {
-                console.log(response)
                 this.testResults = response.data
             })
         },
