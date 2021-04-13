@@ -46,6 +46,7 @@ add_filter('mintfit-rest-get-test', function ($atts) {
     return array_map(function($test_result){
 
         return [
+            'id' => $test_result['id'],
             'user_login' => get_user_by('id', $test_result['user_id'])->user_login,
             'test_slug' => $test_result['test_slug'],
             'max_score' => floatval($test_result['max_score']),
