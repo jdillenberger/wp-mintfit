@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 this.clientId = response.data['client_id']
                 this.clientSecret = response.data['client_secret']
             })
+            // Empty response, if capability mintfit_view_results is missing - therefore secure
             this.api.get('mintfit/v1/test/all?all_users=true').then(response => {
                 this.testResults = response.data
             })
