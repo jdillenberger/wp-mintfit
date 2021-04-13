@@ -22,7 +22,7 @@
       <label :for="'check-' + test">{{ test }}</label>
     </p>
 
-    <button type="button" :disabled="!formFilledOut || !changed"  @click="saveForm()">Save</button>
+    <button type="button" :disabled="!formFilledOut || !changed"  @click="saveForm()" class="button action">Save Configuration</button>
 
   </form>
 </template>
