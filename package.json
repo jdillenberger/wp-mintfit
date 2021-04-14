@@ -10,7 +10,7 @@
     "author": "Jan Dillenberger",
     "license": "GPL-2.0-only",
     "contributors": [
-        "Jan Dillenberger <gravityscores@jandillenberger.com>"
+        "Jan Dillenberger <projects@jandillenberger.com>"
     ],
     "main": "wp-mintfit.php",
     "scripts": {
