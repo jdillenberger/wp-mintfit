@@ -66,7 +66,7 @@ This capability is by default only granted to administators.
 
 In order to use wp-mintfit on your posts/pages, you need a solution that on the one hand allows you to make REST requests and on the other hand provides a way to use this data in your pages. 
 
-I will present a solution for this soon here.
+I will present a solution for this here soon.
 
 ## Support
 
