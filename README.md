@@ -31,6 +31,8 @@ You can now upload the installable zip-archive in WordPress admin to install it 
 
 ## Usage
 
+### Configuration
+
 After wp-mintfit is installed and activated in WordPress the admin menu contains a `Mintfit` section
 which includes the following subsections: 
 
@@ -40,13 +42,18 @@ which includes the following subsections:
 To get the plugin to work - you first need to go to the `Options` page. To add your `client-id` and `client-secret`.
 Without those two keys the plugin won't work.
 
-The Plugin extends the WordPress REST-API. Use the following rest endpoint to access a users data.
+### API Usage
 
+The Plugin extends the WordPress REST-API. Use the following REST GET endpoint to access a users data.
 
 ```index.php/wp_json/mintfit/v1/test/{test_id}```
 
 Just replace `{test_id}` by `all` or by a valid MINTFIT `test_id` such as `math1` or `physics`. 
 
+Users that have the `mintfit_view_results` capability can use the endpoint as follows to access the results for all synchronized users. 
+This capability is by default only granted to administators.
+
+```index.php/wp_json/mintfit/v1/test/{test_id}?all_users=true```
 
 ## Support
 
