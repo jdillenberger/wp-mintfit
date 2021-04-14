@@ -1,7 +1,7 @@
-# Gravity Scores
+# wp-mintfit
 
 wp-mintfit is a WordPress Plugin. It provides a local REST-API for MINTFIT user data.
-The data is periodically updated using `wp-cron`. A lot more features will be added soon. 
+The data is periodically updated using `wp-cron`. Some more features will be added soon.
 
 > This plugin is currently in beta. Try at your own risk.
 
@@ -22,8 +22,8 @@ Building on Windows is currently not supported. But if you can are able to read 
 Clone this repository and execute `build.sh` to build an installable zip-file.
 
 ```sh
-git clone git@gitlab.rlp.net:jdillenberger/gravityscores.git
-cd ./gravityscores
+git clone git@github.com:jdillenberger/wp-mintfit.git
+cd ./wp-mintfit
 bash ./build.sh
 ```
 
@@ -43,9 +43,9 @@ Without those two keys the plugin won't work.
 The Plugin extends the WordPress REST-API. Use the following rest endpoint to access a users data.
 
 
-```index.php/wp_json/mintfit/v1/test/{test}```
+```index.php/wp_json/mintfit/v1/test/{test_id}```
 
-Just replace `{test}` by `all` or by a valid MINTFIT `test_id` such as `math1` or `physics`. 
+Just replace `{test_id}` by `all` or by a valid MINTFIT `test_id` such as `math1` or `physics`. 
 
 
 ## Support
