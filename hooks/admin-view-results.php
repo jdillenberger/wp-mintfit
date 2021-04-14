@@ -12,6 +12,8 @@ add_action('mintfit-admin-view-results-page', function(){
 
     wp_localize_script('mintfit-admin-options-js', 'nonce', [wp_create_nonce('wp_rest')]);
 
+    wp_localize_script('mintfit-admin-options-js', 'position', ['admin', 'viewResults']);
+
     ?>
     <div class="mitfit-app wrap">
         <admin-view-results :test-results="testResults" @deleteenty="deleteEntry($event)"/>

@@ -29,15 +29,24 @@ document.addEventListener('DOMContentLoaded', function() {
             testsAvailable: ['math1', 'physics']
         },
         mounted() {
-            this.api.get('mintfit/v1/options/').then((response) => {
-                this.tests = response.data['tests']
-                this.clientId = response.data['client_id']
-                this.clientSecret = response.data['client_secret']
-            })
-            // Empty response, if capability mintfit_view_results is missing - therefore secure
-            this.api.get('mintfit/v1/test/all?all_users=true').then(response => {
-                this.testResults = response.data
-            })
+
+            if (position[0] == 'admin') {
+
+                if (position[1] == 'options') {
+                    this.api.get('mintfit/v1/options/').then((response) => {
+                        this.tests = response.data['tests']
+                        this.clientId = response.data['client_id']
+                        this.clientSecret = response.data['client_secret']
+                    })
+                }
+
+                if (position[1] == 'viewResults') {
+                    this.api.get('mintfit/v1/test/all?all_users=true').then(response => {
+                        this.testResults = response.data
+                    })
+                }
+            }
+
         },
         methods: {
             log: function(message) {

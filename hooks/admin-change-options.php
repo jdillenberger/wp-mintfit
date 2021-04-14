@@ -12,6 +12,8 @@ add_action('mintfit-admin-change-options-page', function(){
 
     wp_localize_script('mintfit-admin-options-js', 'nonce', [wp_create_nonce('wp_rest')]);
 
+    wp_localize_script('mintfit-admin-options-js', 'position', ['admin', 'options']);
+
     ?>
     <div class="mitfit-app wrap">
         <admin-change-options 
