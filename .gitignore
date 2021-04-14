@@ -19,4 +19,4 @@ node_modules/
 !build.sh
 !LICENSE
 !Vagrantfile
-!install_vagrant.sh
+!install-vagrant.sh
