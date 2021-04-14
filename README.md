@@ -27,7 +27,7 @@ cd ./wp-mintfit
 bash ./build.sh
 ```
 
-You can now upload the installable zip-archive in WordPress admin to install it and then activate it. [[More Info the about WordPress Plugin installation]](https://wordpress.org/support/article/managing-plugins/#manual-upload-via-wordpress-admin)
+You can now upload the installable zip-archive in WordPress admin to install it and then activate it. [More Information ](https://wordpress.org/support/article/managing-plugins/#manual-upload-via-wordpress-admin)
 
 ## Usage
 
@@ -47,6 +47,8 @@ Without those two keys the plugin won't work.
 The Plugin extends the WordPress REST-API. Use the following REST GET endpoint to access a users data.
 
 ```index.php/wp_json/mintfit/v1/test/{test_id}```
+
+> To use the rest-api you need a `wp-rest` WordPress nonce. [More Information](https://codex.wordpress.org/WordPress_Nonces)
 
 Just replace `{test_id}` by `all` or by a valid MINTFIT `test_id` such as `math1` or `physics`. 
 
