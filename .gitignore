@@ -16,3 +16,4 @@ node_modules/
 !package.json
 !webpack.config.js
 !build.sh
+!LICENSE
