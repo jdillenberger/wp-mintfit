@@ -1,7 +1,10 @@
 # wp-mintfit
 
-wp-mintfit is a WordPress Plugin. It provides a local REST-API for MINTFIT user data.
-The data is periodically updated using `wp-cron`. Some more features will be added soon.
+wp-mintfit is a WordPress Plugin for Websites that have an `OAuth` integration with MINTFIT.
+The Plugin periodically requests the MINTFIT API and stores the gathered data in the local database.
+Furthermore it exposes its own REST-API, to query that data.
+
+This way you don't have to expose your clientId/clientSecret in your JavaScript frontend, nor do you have to synchronously query the MINTFIT API on the server side for every request, which would be very slow.
 
 > This plugin is currently in beta. Try at your own risk.
 
@@ -14,10 +17,9 @@ The data is periodically updated using `wp-cron`. Some more features will be add
 
 ## Installation
 
-To build `wp-mintfit` you need have `npm` installed. 
-Additionally you may need some tools, which are available as `coreutils` on many Linux distributions and Mac.
-Depending on your system the package may be written a little bit differently.
-Building on Windows is currently not supported. But if you can are able to read `build.sh`, you should be able to build it anyway. 
+To build `wp-mintfit` you need have `npm` installed.
+Additionally you need the tools, which are available via a `coreutils` package on most Unix-like systems (Linux, Mac).
+You'll have to figure out how to build it on Windows yourself, but that shouldn't be too hard either. Just read the `build.sh`.
 
 Clone this repository and execute `build.sh` to build an installable zip-file.
 
@@ -31,7 +33,7 @@ You can now upload the installable zip-archive in WordPress admin to install it 
 
 ## Usage
 
-### Configuration
+### Admin Sections
 
 After wp-mintfit is installed and activated in WordPress the admin menu contains a `Mintfit` section
 which includes the following subsections: 
@@ -40,7 +42,10 @@ which includes the following subsections:
 - Results
 
 To get the plugin to work - you first need to go to the `Options` page. To add your `client-id` and `client-secret`.
-Without those two keys the plugin won't work.
+Without those two keys the plugin won't work. 
+In this section you can also select the tests from which data is to be synchronized.
+
+Additionally you can use the results-page to view and delete data from your local database. 
 
 ### API Usage
 
@@ -56,6 +61,12 @@ Users that have the `mintfit_view_results` capability can use the endpoint as fo
 This capability is by default only granted to administators.
 
 ```index.php/wp_json/mintfit/v1/test/{test_id}?all_users=true```
+
+### Post/Page Usage
+
+In order to use wp-mintfit on your posts/pages, you need a solution that on the one hand allows you to make REST requests and on the other hand provides a way to use this data in your pages. 
+
+I will present a solution for this soon here.
 
 ## Support
 
