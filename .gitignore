@@ -14,6 +14,7 @@ node_modules/
 # Furthermore do not ignore those specific files
 !.gitignore
 !package.json
+!package-lock.json
 !webpack.config.js
 !build.sh
 !LICENSE
