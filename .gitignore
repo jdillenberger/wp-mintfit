@@ -17,3 +17,5 @@ node_modules/
 !webpack.config.js
 !build.sh
 !LICENSE
+!Vagrantfile
+!install_vagrant.sh
