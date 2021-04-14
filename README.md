@@ -19,7 +19,7 @@ This way you don't have to expose your clientId/clientSecret in your JavaScript 
 
 To build `wp-mintfit` you need have `npm` installed.
 Additionally you need the tools, which are available via a `coreutils` package on most Unix-like systems (Linux, Mac).
-You'll have to figure out how to build it on Windows yourself, but that shouldn't be too hard either. Just read the `build.sh`.
+You'll have to figure out how to build it on Windows yourself, but that shouldn't be too hard. Just read the `build.sh`.
 
 Clone this repository and execute `build.sh` to build an installable zip-file.
 
