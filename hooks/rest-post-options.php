@@ -2,6 +2,10 @@
 
 add_filter('mintfit-rest-post-options', function ($atts) {
 
+    if (!current_user_can('mintfit_change_options')) {
+        return [];
+    }
+
     $data = $atts->get_params();
 
     $old_tests = get_option('mintfit-api-tests-active', []);
