@@ -24,9 +24,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }),
             clientId: "",
             clientSecret: "",
-            tests: [],
+            testsActive: [],
+            testsAvailable: [],
             testResults: [],
-            testsAvailable: ['math1', 'physics']
+            refreshTime: 5000,
         },
         mounted() {
 
@@ -34,7 +35,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 if (position[1] == 'options') {
                     this.api.get('mintfit/v1/options/').then((response) => {
-                        this.tests = response.data['tests']
+                        console.log(response)
+                        this.testsActive = response.data['tests_active']
+                        this.testsAvailable = response.data['tests_available']
                         this.clientId = response.data['client_id']
                         this.clientSecret = response.data['client_secret']
                     })
@@ -54,12 +57,31 @@ document.addEventListener('DOMContentLoaded', function() {
                 return message
             },
             saveOptions: function(clientData) {
-                console.log(clientData)
+
                 this.api.post('mintfit/v1/options/', clientData).then((response) => {
+
+                    // Reload tests with increasing timeout, if they are not available
+                    let refreshTests = () => {
+                        this.api.get('mintfit/v1/options/').then(response => {
+                            if (response.testsAvailable.length > 0) {
+                                this.testsAvailable = response['tests_available']
+                                this.testsActive = response['tests_active']
+                            } else {
+                                setTimeout(refreshTests, this.refreshTime)
+                            }
+                        })
+                        this.refreshTime *= 2;
+                    }
 
                     this.clientId = clientData.clientId
                     this.clientSecret = clientData.clientSecret
-                    this.tests = clientData.tests
+
+                    if (this.testsAvailable.length > 0) {
+                        this.testsActive = clientData.testsActive
+                    } else {
+                        refreshTests()
+                    }
+
                 })
 
             },

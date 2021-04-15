@@ -35,11 +35,6 @@ register_activation_hook(MF_PLUGIN_INDEX, function () {
         `trash` BOOLEAN
     )");
 
-    update_option('mintfit-api-tests', json_encode([
-        'math1',
-        'physics'
-    ]));
-
 });
 
 register_deactivation_hook(MF_PLUGIN_INDEX, function () {

@@ -15,12 +15,29 @@
       <input id="input-client-secret" type="text" v-model="$data._clientSecret" required>
     </p>
 
+    <template v-if="testsAvailable.length > 0">
+
     <h2>Test configuration</h2>
     <p>Which of the following tests do you want to synchronize?</p>
-    <p v-for="test in testsAvailable" :key="test">
+    <p v-for="test in Object.keys($data._tests)" :key="test">
       <input  :id="'check-' + test" type="checkbox" :value="test" v-model="$data._tests[test]" />
       <label :for="'check-' + test">{{ test }}</label>
     </p>
+
+    </template>
+
+    <template v-else-if="clientId == '' || clientSecret == ''">
+
+      <p><strong>Please enter your "Client Id" and your "Client Secret" to load a list of available tests.</strong></p>
+
+    </template>
+
+    <template v-else >
+
+      <p>It may take a <strong>few miniutes to load the available tests.</strong> Make sure that your Client Data is correct.</p>
+
+    </template>
+
 
     <button type="button" :disabled="!formFilledOut || !changed"  @click="saveForm()" class="button action">Save Configuration</button>
 
@@ -33,7 +50,7 @@ import Vue from 'vuejs';
 export default {
   name: 'admin-change-options',
   props: {
-    tests: Array,
+    testsActive: Array,
     testsAvailable: Array,
     clientId: String,
     clientSecret: String
@@ -53,11 +70,20 @@ export default {
       clientSecret: function(newValue, oldValue) {
         this.$data._clientSecret = this.clientSecret
       },
-      tests: function(newValue, oldValue) {
+      testsActive: function(newValue, oldValue) {
+        if (!Array.isArray(this.testsAvailable) || !Array.isArray(this.testsActive)) return;
+
         this.testsAvailable.forEach(availableTest => {
-          Vue.set(this.$data._tests, availableTest, this.tests.includes(availableTest))
+          Vue.set(this.$data._tests, availableTest, this.testsActive.includes(availableTest))
         });
       },
+      testsAvailable: function(newValue, oldValue) {
+        if (!Array.isArray(this.testsAvailable) || !Array.isArray(this.testsActive)) return;
+
+        this.testsAvailable.forEach(availableTest => {
+          Vue.set(this.$data._tests, availableTest, this.testsActive.includes(availableTest))
+        });
+      }
   },
   computed: {
       changed: function() {
@@ -67,7 +93,7 @@ export default {
         let changedTests = false
 
         for (let test of this.testsAvailable) {
-          if (this.$data._tests[test] !== this.tests.includes(test)) {
+          if (this.$data._tests[test] !== this.testsActive.includes(test)) {
             changedTests = true
           }
         }
@@ -77,7 +103,6 @@ export default {
       formFilledOut: function() {
         let hasClientId = String( this.$data._clientId ).trim() != ''
         let hasClientSecret = String( this.$data._clientSecret ).trim() != ''
-        console.log(hasClientId && hasClientSecret) 
         return hasClientId && hasClientSecret
       }
   },
@@ -89,7 +114,7 @@ export default {
         this.$emit('saveoptions', {
           clientId: this.$data._clientId,
           clientSecret: this.$data._clientSecret,
-          tests: this.testsAvailable.filter(test => {
+          testsActive: Object.keys(this.$data._tests).filter(test => {
             return this.$data._tests[test]
           })
         })

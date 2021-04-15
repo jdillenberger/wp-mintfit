@@ -15,4 +15,11 @@ if ( ! wp_next_scheduled( 'update_mintfit_api' ) ) {
     }); 
 
     wp_schedule_event( time(), 'update_mintfit_schedule', 'update_mintfit_api' );
+
+}
+
+if ( ! wp_next_scheduled( 'update-mintfit-api-info' ) ) {
+
+    wp_schedule_event( time(), 'daily', 'update-mintfit-api-info' );
+
 }

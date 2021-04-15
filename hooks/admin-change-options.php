@@ -19,7 +19,7 @@ add_action('mintfit-admin-change-options-page', function(){
         <admin-change-options 
             :client-id="clientId" 
             :client-secret="clientSecret"
-            :tests="tests"
+            :tests-active="testsActive"
             :tests-available="testsAvailable"
             @saveoptions="saveOptions($event)"
         />
