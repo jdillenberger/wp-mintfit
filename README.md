@@ -1,7 +1,7 @@
 # wp-mintfit
 
 wp-mintfit is a WordPress Plugin for Websites that have an `OAuth` integration with MINTFIT.
-The Plugin periodically requests the MINTFIT API and stores the gathered data in the local database.
+The Plugin periodically requests the MINTFIT API and stores the data to the local database.
 Furthermore it exposes its own REST-API, to query that data.
 
 This way you don't have to expose your clientId/clientSecret in your JavaScript frontend, nor do you have to synchronously query the MINTFIT API on the server side for every request, which would be very slow.
@@ -57,7 +57,7 @@ The Plugin extends the WordPress REST-API. Use the following REST GET endpoint t
 
 > To use the rest-api you need a `wp-rest` WordPress nonce. [More Information](https://codex.wordpress.org/WordPress_Nonces)
 
-Just replace `{test_id}` by `all` or by a valid MINTFIT `test_id` such as `math1` or `physics`. 
+Just replace `{test_id}` by `all` or by a valid MINTFIT `test_id` as they are shown at the admin-options page - after your client data has been saved.
 
 Users that have the `mintfit_view_results` capability can use the endpoint as follows to access the results for all synchronized users. 
 This capability is by default only granted to administators.
