@@ -125,7 +125,6 @@ export default {
   },
   methods: {
       performAction: function(action, row){
-          console.log(row)
           if (action == 'view') {
               this.selectedTestResult = row
           }

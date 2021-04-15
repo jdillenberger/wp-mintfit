@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 if (position[1] == 'options') {
                     this.api.get('mintfit/v1/options/').then((response) => {
-                        console.log(response)
                         this.testsActive = response.data['tests_active']
                         this.testsAvailable = response.data['tests_available']
                         this.clientId = response.data['client_id']
