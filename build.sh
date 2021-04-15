@@ -13,13 +13,16 @@ set -e
 
 CURRENT_DIRECTORY=`realpath $(dirname $0)`
 
+# Change into the project directory
 pushd "$CURRENT_DIRECTORY"
     
     VERSION=`git branch --show-current`
     
+    # install and build with npm
     npm install
     npm run build
 
+    # Create a zip-file containing all files except the ones excluded below
     rm -f "./${ARCHIVE_NAME}.${VERSION}.zip"
     zip -r "${ARCHIVE_NAME}.${VERSION}.zip" . -x './node_modules/*'  './js/*' '*.git*' './README.md' './*.json' './*.sh' '*~*' './webpack*' '*.log' 'Vagrantfile' './*.config.js'
 
