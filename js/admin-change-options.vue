@@ -12,7 +12,7 @@
 
     <p>
       <label class="textbox-label" for="input-client-secret">Client Secret:</label>
-      <input id="input-client-secret" type="text" v-model="$data._clientSecret" required>
+      <input id="input-client-secret" type="password" v-model="$data._clientSecret" required>
     </p>
 
     <template v-if="testsAvailable.length > 0">
