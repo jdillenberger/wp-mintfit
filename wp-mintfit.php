@@ -11,9 +11,6 @@
 defined('ABSPATH') or die();
 define('MF_PLUGIN_INDEX', __FILE__);
 
-ini_set('display_errors', '1');
-error_reporting(E_ALL);
-
 # HOOKS
 include plugin_dir_path(MF_PLUGIN_INDEX) . 'hooks/activation.php';
 include plugin_dir_path(MF_PLUGIN_INDEX) . 'hooks/admin-change-options.php';
