@@ -14,6 +14,7 @@ This way you don't have to expose your clientId/clientSecret in your JavaScript 
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Development](#development)
 - [Support](#support)
 - [Contributing](#contributing)
 
@@ -71,6 +72,35 @@ This capability is by default only granted to administators.
 In order to use wp-mintfit on your posts/pages, you need a solution that on the one hand allows you to make REST requests and on the other hand provides a way to use this data in your pages. 
 
 I will present a solution for this here soon.
+
+## Development
+
+### Development Environment
+
+To use the development environment - you need to have `Vagrant` installed.
+If this is done, you can change into the main project directory and type `vagrant up`.
+This will setup a virtual machine containing a WordPress instance with wp-mintfit installed, but not activated.
+
+After the VM is booted up, the most relevant links are by default:
+- [WordPress Frontend](http://192.168.13.37/wordpress)
+- [WordPress Admin Interface](http://192.168.13.37/wordpress/wp-admin)
+- [phpMyAdmin](http://192.168.13.37/phpmyadmin/)
+
+> The default links may not work if you have other VMs running, that wants to use the same url.
+
+You can login to the WordPress admin interface or to phyMyAdmin as:
+- **Username:** admin
+- **Password:** 1234
+
+> The vagrant-box was created for easy development, not as a secure server. Please do not make them available over the Internet. 
+
+### Development Version Build
+
+To create the JavaScript code as a development version that allows easier debugging. Use the following command from within the project directory:
+
+```
+npm run dev
+```
 
 ## Support
 
