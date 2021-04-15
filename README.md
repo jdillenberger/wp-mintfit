@@ -8,6 +8,8 @@ This way you don't have to expose your clientId/clientSecret in your JavaScript 
 
 > This plugin is currently in beta. Try at your own risk.
 
+![wp-mintfit options page](https://cloud.jandillenberger.com/index.php/s/fJxSMsSf7gazt3F/download)
+
 ## Table of Contents
 
 - [Installation](#installation)
