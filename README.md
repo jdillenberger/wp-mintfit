@@ -53,6 +53,8 @@ Additionally you can use the results-page to view and delete data from your loca
 
 The Plugin extends the WordPress REST-API. Use the following REST GET endpoint to access a users data.
 
+> Normal users can only access their own data trough the api. 
+
 ```index.php/wp_json/mintfit/v1/test/{test_id}```
 
 > To use the rest-api you need a `wp-rest` WordPress nonce. [More Information](https://codex.wordpress.org/WordPress_Nonces)
