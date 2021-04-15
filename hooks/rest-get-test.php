@@ -11,9 +11,11 @@ add_filter('mintfit-rest-get-test', function ($atts) {
     }
 
     // Abort if the requested test does not exist
-    if (!in_array($atts['test'],  array_merge( json_decode(get_option('mintfit-api-tests', '[]'), true), ['all'] ))){
+    if (!in_array($atts['test'],  array_merge( json_decode(get_option('mintfit-api-tests-available', '[]'), true), ['all'] ))){
         return [];
     }
+
+    
     
     $conditions = [];
     $condition_variables = [];
@@ -42,7 +44,7 @@ add_filter('mintfit-rest-get-test', function ($atts) {
     
     $wpdb->show_errors();
     $stmt = call_user_func_array([$wpdb, 'prepare'], array_merge([$query], $condition_variables));
-
+    
     return array_map(function($test_result){
 
         return [
