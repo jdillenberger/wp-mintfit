@@ -31,7 +31,7 @@ cd ./wp-mintfit
 bash ./build.sh
 ```
 
-You can now upload the installable zip-archive in WordPress admin to install it and then activate it. [More Information ](https://wordpress.org/support/article/managing-plugins/#manual-upload-via-wordpress-admin)
+You can now upload the installable zip-archive in WordPress admin to install and then activate it. [More Information ](https://wordpress.org/support/article/managing-plugins/#manual-upload-via-wordpress-admin)
 
 ## Usage
 
