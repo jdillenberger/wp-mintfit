@@ -7,7 +7,7 @@ add_action('mintfit-admin-change-options-page', function(){
     wp_localize_script('mintfit-admin-options-js', 'localURLs', [
         'home' => home_url(),
         'rest' => rest_url(),
-        'gravityscores' => plugin_dir_url(MF_PLUGIN_INDEX),
+        'mintfitPluginDir' => plugin_dir_url(MF_PLUGIN_INDEX)
     ]);
 
     wp_localize_script('mintfit-admin-options-js', 'nonce', [wp_create_nonce('wp_rest')]);
