@@ -69,9 +69,7 @@ This capability is by default only granted to administators.
 
 ### Post/Page Usage
 
-In order to use wp-mintfit on your posts/pages, you need a solution that on the one hand allows you to make REST requests and on the other hand provides a way to use this data in your pages. 
-
-I will present a solution for this here soon.
+To show a users results on your WordPress posts/pages the [wp-rest-template-block-builder](https://github.com/jdillenberger/wp-rest-template-block-builder) may be a good solution. 
 
 ## Development
 
